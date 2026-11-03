@@ -1,0 +1,45 @@
+ids = [101, 105, 110, 115, 120, 125, 130]
+
+
+# Linear Search
+def linear_search(ids, key):
+    for i in range(len(ids)):
+        if ids[i] == key:
+            return True
+
+    return False
+
+
+# Binary Search
+def binary_search(ids, key):
+    low = 0
+    high = len(ids) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if ids[mid] == key:
+            return True
+
+        elif key < ids[mid]:
+            high = mid - 1
+
+        else:
+            low = mid + 1
+
+    return False
+
+
+key = int(input("Enter customer ID: "))
+
+
+if linear_search(ids, key):
+    print("ID found using Linear Search")
+else:
+    print("ID not found using Linear Search")
+
+
+if binary_search(ids, key):
+    print("ID found using Binary Search")
+else:
+    print("ID not found using Binary Search")
